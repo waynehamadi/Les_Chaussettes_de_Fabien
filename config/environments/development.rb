@@ -32,6 +32,8 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  config.mailer_sender = 'merwanehamadi@gmail.com'
+
 
   config.action_mailer.perform_caching = false
 
