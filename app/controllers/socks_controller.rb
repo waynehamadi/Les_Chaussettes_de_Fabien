@@ -6,4 +6,9 @@ class SocksController < ApplicationController
   def show
     @sock = Sock.find(params[:id])
   end
+
+  def destroy
+    @sock = Sock.find(params[:id])
+    @sock.destroy
+  end
 end
