@@ -1,0 +1,12 @@
+<%= simple_form_for(@sock, method: :patch, url: sock_path(@sock.id)) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :color %>
+  <%= f.input :price %>
+  <%= f.input :size %>
+  <%= f.input :user_id %>
+  <%= f.submit %>
+<% end %>
+
+<!-- user_id a supprimer -->
