@@ -29,7 +29,11 @@ class SocksController < ApplicationController
     else
       render :edit
     end
-
+  end
+  
+  def destroy
+    @sock = Sock.find(params[:id])
+    @sock.destroy
   end
 
   private
@@ -37,5 +41,4 @@ class SocksController < ApplicationController
     params.require(:sock).permit(:color, :title, :description, :category,
     :price, :user_id, :size )
   end
-
 end
