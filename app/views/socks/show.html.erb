@@ -1,1 +1,14 @@
 <p>Hello World</p>
+<div class="banner">
+  <div class="container">
+    <p><%= @sock.title %></p>
+  </div>
+</div>
+
+<div class="container">
+  <p><%= @sock.description %></p>
+  <p><%= @sock.dirtyness %></p>
+  <p><%= @sock.size %></p>
+</div>
+
+<%= link_to "Back to Socks List", socks_path, class: "btn btn-primary" %>
