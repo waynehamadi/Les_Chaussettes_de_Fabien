@@ -1,0 +1,12 @@
+<ul>
+  <% @socks.each do |sock|%>
+  <li>color <%= sock.color %> </li>
+  <li>title <%= sock.title %> </li>
+  <li>description<%= sock.description%> </li>
+  <li>category<%= sock.category %> </li>
+  <li>photo<%= sock.photo %> </li>
+  <li>price<%= sock.price %></li>
+  <li>user_id<%= sock.user_id %> </li>
+  <li>size<%= sock.size  %></li>
+  <% end %>
+</ul>
