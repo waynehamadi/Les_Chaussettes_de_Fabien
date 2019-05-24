@@ -1,41 +1,48 @@
+<div class="image_background">
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @sock.photo %>);">
   <div class="container">
-    <h1><%= @sock.title %></h1>
   </div>
 </div>
 
 <div class="container mt-3">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= @sock.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @sock.dirtyness %></h6>
-      <p class="card-text">Description: <%= @sock.description %></p>
-      <p class="card-text">Size: <%= @sock.size %></p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+  <div class="big-card-show justify-content-around my-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= @sock.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= @sock.dirtyness %></h6>
+        <p class="card-text">Description: <%= @sock.description %></p>
+        <p class="card-text">Size: <%= @sock.size %></p>
+      </div>
     </div>
-  </div>
-  <div class="mt-3 row justify-content-center">
-    <div class="col-4">
-      <h4>Book these socks</h4>
+    <div class="mt-3 row justify-content-center">
+      <div class="col-4">
+      </div>
+      <div class="card form">
+        <div class="card-body">
+          <h5 class="card-title">Book these Socks</h5>
+          <h6 class="card-subtitle mb-2">Add your dates</h6>
+          <%= simple_form_for([@sock, @booking]) do |f| %>
+            <%= f.input :start_at %>
+            <%= f.input :end_at %>
+            <%= f.button :submit, "I WANT THESE!", class:"btn justify-content-cente"%>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
-<%= simple_form_for([@sock, @booking]) do |f| %>
-  <%= f.input :start_at %>
-  <%= f.input :end_at %>
-  <%= f.submit %>
-<% end %>
-
- <div class="card border-top border-bottom py-5">
+ <div class="card-reviews border-top border-bottom py-5">
   <h2><%= @sock.title %> Reviews</h2>
+  <ul class="reviews-list">
   <% @sock.reviews.each do |review| %>
-      <%= review.rating %> : <%= review.content %>
+      <li><%= review.rating %> : <%= review.content %></li>
   <% end %>
+  </ul>
  </div>
 
 <div class="container d-flex mt-3 justify-content-between">
+<div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn" %></div>
 <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %></div>
 <div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>
-<div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn" %></div>
+</div>
 </div>
