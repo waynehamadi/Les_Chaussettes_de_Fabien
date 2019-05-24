@@ -1,16 +1,25 @@
-<p>Hello World</p>
-<div class="banner">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @sock.photo %>);">
   <div class="container">
-    <p><%= @sock.title %></p>
+    <h1><%= @sock.title %></h1>
   </div>
 </div>
 
-<div class="container">
-  <p><%= @sock.description %></p>
-  <p><%= @sock.dirtyness %></p>
-  <p><%= @sock.size %></p>
-  <p><%= cl_image_tag @sock.photo, height: 300, width: 400, crop: :fill %></p>
-</div>
+<div class="container mt-3">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @sock.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @sock.dirtyness %></h6>
+      <p class="card-text">Description: <%= @sock.description %></p>
+      <p class="card-text">Size: <%= @sock.size %></p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+  <div class="mt-3 row justify-content-center">
+    <div class="col-4">
+      <h4>Book these socks</h4>
+    </div>
+  </div>
 
 <%= simple_form_for([@sock, @booking]) do |f| %>
   <%= f.input :start_at %>
@@ -18,6 +27,15 @@
   <%= f.submit %>
 <% end %>
 
-<%= link_to "update", edit_sock_path(@sock), class: "btn btn-primary" %>
-<%= link_to "destroy", sock_path(@sock), method: :delete, class: "btn btn-primary" %>
-<%= link_to "Back to Socks List", socks_path, class: "btn btn-primary" %>
+ <div class="card border-top border-bottom py-5">
+  <h2><%= @sock.title %> Reviews</h2>
+  <% @sock.reviews.each do |review| %>
+      <%= review.rating %> : <%= review.content %>
+  <% end %>
+ </div>
+
+<div class="container d-flex mt-3 justify-content-between">
+<div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %></div>
+<div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>
+<div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn" %></div>
+</div>
