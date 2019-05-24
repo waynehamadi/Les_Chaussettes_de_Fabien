@@ -1,6 +1,7 @@
 class SocksController < ApplicationController
   def index
     @socks = Sock.all
+    skip_policy_scope
   end
 
   def show
@@ -30,7 +31,7 @@ class SocksController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @sock = Sock.find(params[:id])
     @sock.destroy
