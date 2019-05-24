@@ -12,13 +12,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-   @booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_params)
+    authorize @booking
+    @sock = Sock.find(params[:sock_id])
+    @booking.sock = @sock
+    @booking.user = current_user
+    @booking.save
   end
 
-private
+  private
 
-def booking_params
-  params.require(:booking).permit(:start_at, :end_at, :user_id, :sock_id)
-end
-
+  def booking_params
+    params.require(:booking).permit(:start_at, :end_at, :user_id, :sock_id)
+  end
 end

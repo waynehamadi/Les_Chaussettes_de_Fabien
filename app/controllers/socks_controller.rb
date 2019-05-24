@@ -6,6 +6,7 @@ class SocksController < ApplicationController
 
   def show
     @sock = Sock.find(params[:id])
+    @booking = Booking.new
     authorize @sock
   end
 
