@@ -11,4 +11,6 @@
   <p><%= @sock.size %></p>
 </div>
 
+<%= link_to "update", edit_sock_path(@sock), class: "btn btn-primary" %>
+<%= link_to "destroy", sock_path(@sock), method: :delete, class: "btn btn-primary" %>
 <%= link_to "Back to Socks List", socks_path, class: "btn btn-primary" %>
