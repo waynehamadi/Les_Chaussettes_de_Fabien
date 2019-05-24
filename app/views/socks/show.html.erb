@@ -21,6 +21,12 @@
     </div>
   </div>
 
+<%= simple_form_for([@sock, @booking]) do |f| %>
+  <%= f.input :start_at %>
+  <%= f.input :end_at %>
+  <%= f.submit %>
+<% end %>
+
  <div class="card border-top border-bottom py-5">
   <h2><%= @sock.title %> Reviews</h2>
   <% @sock.reviews.each do |review| %>
