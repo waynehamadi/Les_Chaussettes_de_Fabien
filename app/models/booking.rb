@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :sock
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   validates :start_at, presence: true
   validates :end_at, presence: true
   validate :start_at_cannot_be_in_the_past
