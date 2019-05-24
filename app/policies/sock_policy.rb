@@ -25,4 +25,8 @@ class SockPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def mysocks?
+    true
+  end
+
 end

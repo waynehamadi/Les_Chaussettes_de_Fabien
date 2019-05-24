@@ -1,18 +1,24 @@
+<h2>Toutes vos chaussettes</h2>
 
-<ul>
-    <% @socks.each do |sock|%>
-      <li>color <%= sock.color %> </li>
-      <li>title <%= sock.title %> </li>
-      <li>description<%= sock.description%> </li>
-      <li>category<%= sock.category %> </li>
-      <li>photo<%= sock.photo %> </li>
-      <li>price<%= sock.price %></li>
-      <li>user_id <%= sock.user_id %> </li>
-      <li>size <%= sock.size  %></li>
-      <%= link_to 'Show', sock_path(sock) %>
-     <% end %>
+<div>
+  <% @socks.each do |sock|%>
+    <div class="card-columns m-4 flex-column">
+      <div class="card">
+        <p class="card-img-top"><%= sock.photo %></p>
+        <div class="card-body">
+          <h5 class="card-title"><%= sock.title %> </h5>
+          <p class="card-price"><%= sock.price %> Price €/day Price * day au total</p>
+          <p class="card-size"><%= sock.size  %></p>
+          <p class="card-review">Star * Review rate / Review Count </p>
+          <%= link_to 'Show', sock_path(sock) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
 
-
+<% if @socks.count == 0 %>
 <p>Your catalog is empty! Take 1 min and start to rent your socks now</p>
   <%= link_to 'Let\'s go', new_sock_path %>
+  <% end %>
 </ul>

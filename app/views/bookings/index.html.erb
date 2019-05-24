@@ -1,0 +1,19 @@
+
+
+<div class="container-fluid px-4 m-3">
+
+
+<div>
+  <% @bookings.each do |booking|%>
+    <div class="card-columns m-4 flex-column">
+      <div class="card">
+      <%= link_to 'Show', sock_path(booking.sock) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= booking.sock.title %></h5>
+        <p class="card-price"><%= booking.sock.price %> €/day </p>
+        <p class="card-size"><%= booking.sock.size  %></p>
+      </div>
+     </div>
+  <% end %>
+</div>
+
