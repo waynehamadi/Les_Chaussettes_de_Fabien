@@ -6,10 +6,12 @@ class SocksController < ApplicationController
 
   def show
     @sock = Sock.find(params[:id])
+    authorize @sock
   end
 
   def create
     @sock = Sock.new(sock_params)
+    authorize @sock
     if @sock.save
       redirect_to sock_path(@sock)
     else
@@ -19,12 +21,15 @@ class SocksController < ApplicationController
 
   def new
     @sock = Sock.new()
+    authorize @sock
   end
   def edit
     @sock = Sock.find(params[:id])
+    authorize @sock
   end
   def update
     @sock = Sock.new(sock_params)
+    authorize @sock
     if @sock.save
       redirect_to sock_path(@sock)
     else
@@ -35,6 +40,8 @@ class SocksController < ApplicationController
   def destroy
     @sock = Sock.find(params[:id])
     @sock.destroy
+    authorize @sock
+    redirect_to socks_path
   end
 
   private

@@ -16,3 +16,11 @@ sock1 = Sock.new(title:"Amazing socks",
   color: "red"  )
 sock1.user_id = user1.id
 sock1.save
+
+booking = Booking.new()
+booking.sock_id = 1
+booking.user_id = 1
+booking.save
+review = Review.new(rating: 3, content: "bof")
+review.booking_id = 1
+review.save
