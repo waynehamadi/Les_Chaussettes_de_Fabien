@@ -15,7 +15,8 @@
   <% @socks.each do |sock|%>
     <div class="card-columns m-4 flex-column">
       <div class="card">
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/F1_chequered_flag.svg/1200px-F1_chequered_flag.svg.png" alt="Card image cap" > <%= link_to 'Show', sock_path(sock) %>
+      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/F1_chequered_flag.svg/1200px-F1_chequered_flag.svg.png" alt="Card image cap" >
+      <%= link_to 'Show', sock_path(sock) %>
       <div class="card-body">
         <h5 class="card-title"><%= sock.title %></h5>
         <p class="card-price"><%= sock.price %> Price €/day Price * day au total</p>
