@@ -30,7 +30,10 @@ class SocksController < ApplicationController
       render :edit
     end
   end
-  
+  def mysocks
+    @socks = Sock.where(user: current_user)
+  end
+
   def destroy
     @sock = Sock.find(params[:id])
     @sock.destroy
