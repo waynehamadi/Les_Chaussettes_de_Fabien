@@ -11,6 +11,7 @@ class SocksController < ApplicationController
 
   def create
     @sock = Sock.new(sock_params)
+    @sock.user = current_user
     authorize @sock
     if @sock.save
       redirect_to sock_path(@sock)
@@ -36,7 +37,7 @@ class SocksController < ApplicationController
       render :edit
     end
   end
-  
+
   def mysocks
     @socks = Sock.where(user: current_user)
   end
@@ -51,6 +52,6 @@ class SocksController < ApplicationController
   private
   def sock_params
     params.require(:sock).permit(:color, :title, :description, :category,
-    :price, :user_id, :size, :photo)
+    :price, :size, :photo)
   end
 end
