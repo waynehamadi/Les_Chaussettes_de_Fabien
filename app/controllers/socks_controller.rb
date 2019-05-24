@@ -47,6 +47,6 @@ class SocksController < ApplicationController
   private
   def sock_params
     params.require(:sock).permit(:color, :title, :description, :category,
-    :price, :user_id, :size )
+    :price, :user_id, :size, :photo)
   end
 end

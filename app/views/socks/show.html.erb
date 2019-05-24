@@ -9,6 +9,7 @@
   <p><%= @sock.description %></p>
   <p><%= @sock.dirtyness %></p>
   <p><%= @sock.size %></p>
+  <p><%= cl_image_tag @sock.photo, height: 300, width: 400, crop: :fill %></p>
 </div>
 
 <%= link_to "update", edit_sock_path(@sock), class: "btn btn-primary" %>
