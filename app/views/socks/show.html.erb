@@ -33,9 +33,12 @@
       <%= review.rating %> : <%= review.content %>
   <% end %>
  </div>
-
 <div class="container d-flex mt-3 justify-content-between">
+  <% if policy(@sock).edit? %>
 <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %></div>
+  <% end %>
+  <% if policy(@sock).destroy? %>
 <div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>
+  <% end %>
 <div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn" %></div>
 </div>
