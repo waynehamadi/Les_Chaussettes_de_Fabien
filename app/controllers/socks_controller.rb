@@ -41,6 +41,7 @@ class SocksController < ApplicationController
 
   def mysocks
     @socks = Sock.where(user: current_user)
+    authorize @socks
   end
 
   def destroy
