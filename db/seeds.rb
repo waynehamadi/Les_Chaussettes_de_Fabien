@@ -23,7 +23,10 @@ sock1.save
 booking = Booking.new()
 booking.sock_id = 1
 booking.user_id = 1
+booking.start_at = "01/06/2019"
+booking.end_at = "06/06/2019"
 booking.save
 review = Review.new(rating: 3, content: "bof")
 review.booking_id = 1
+
 review.save
