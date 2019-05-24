@@ -1,0 +1,22 @@
+.btn{
+  color: #020a59;
+  height: 50px;
+  width: 200px;
+  line-height: 50px;
+  border: 3px solid #ff0;
+  background-color: #27e3c9;
+  border-radius: 0;
+  padding: 0 14px;
+  font-weight: 700;
+}
+
+.btn:hover {
+  color: magenta;
+  height: 50px;
+  line-height: 50px;
+  border: 3px solid magenta;
+  background-color: #ff0;
+  border-radius: 0;
+  padding: 0 14px;
+  font-weight: 700;
+}
