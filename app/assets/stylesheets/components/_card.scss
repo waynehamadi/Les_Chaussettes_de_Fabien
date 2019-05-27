@@ -40,3 +40,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.card-body {
+  width: 600px;
+  text-align: center;
+}
+
+.card-body-form {
+  width: 400px;
+  text-align: center;
+  padding: 10px;
+}
