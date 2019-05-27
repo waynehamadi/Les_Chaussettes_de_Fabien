@@ -12,10 +12,17 @@
 <div class="content">
   <div class="cards">
     <% @socks.each do |sock| %>
-    <div class="card" style="background-image: url('<%= cl_image_path sock.photo, height: 500, width: 400, crop: :fill %>')">
-        <%= link_to sock.title, sock_path(sock) %>
+    <div>
+      <div class="card" style="background-image: url('<%= cl_image_path sock.photo, height: 500, width: 400, crop: :fill %>')">
       </div>
+      <div class="card-bottom">
+        <span class = "mx-3"><%= link_to sock.title, sock_path(sock),{:style=>'text-decoration:none;'} %></span>
+      </div>
+    </div>
+
+
     <% end %>
   </div>
 
 </div>
+

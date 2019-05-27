@@ -22,15 +22,29 @@
 .card {
   background-size: cover;
   background-position: center;
-  height: 300px;
+  height: 250px;
   border-radius: 1px;
-  margin: 15px 10px;
+  margin: 10px 50px 0px 50px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 25px;
   color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+.card-bottom {
+  text-decoration: none;
+  background-color: #020959;
+  color: #FFFC04;
+  height: 40px;
+  border-radius: 1px;
+  margin: 0px 50px 10px 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  font-size: 25px;
+  color: #FFFC04;
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
