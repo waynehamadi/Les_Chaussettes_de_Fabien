@@ -1,5 +1,4 @@
 
-
 <div class="container-fluid">
   <nav class=" nav nav-pills flex-column flex-sm-row">
     <a class="flex-sm-fill text-sm-center btn" href="#">Category</a>
@@ -9,19 +8,14 @@
   </nav>
 </div>
 
-  <% @socks.each do |sock|%>
-<h2>Plus de 20 odeurs à découvrir</h2>
-    <div class="card-columns">
-      <div class="card">
-      <img class="card-img-top" src="<%= sock.photo %>" alt="Card image cap" > <%= link_to 'Show', sock_path(sock) %>
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/F1_chequered_flag.svg/1200px-F1_chequered_flag.svg.png" alt="Card image cap" >
-      <%= link_to 'Show', sock_path(sock) %>
-      <div class="card-body">
-        <h5 class="card-title"><%= sock.title %></h5>
-        <p class="card-price"><%= sock.price %> Price €/day Price * day au total</p>
-        <p class="card-size"><%= sock.size  %></p>
-        <p class="card-review">Star * Review rate / Review Count </p>
+
+<div class="content">
+  <div class="cards">
+    <% @socks.each do |sock| %>
+    <div class="card" style="background-image: url('<%= cl_image_path sock.photo, height: 500, width: 400, crop: :fill %>')">
+        <%= link_to sock.title, sock_path(sock) %>
       </div>
-     </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>
