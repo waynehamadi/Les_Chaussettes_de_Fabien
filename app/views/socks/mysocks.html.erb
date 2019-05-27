@@ -1,5 +1,13 @@
 <h2>Toutes vos chaussettes</h2>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'My account', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">My socks</li>
+  </ol>
+</nav>
+
 <div>
   <% @socks.each do |sock|%>
     <div class="card-columns m-4 flex-column">

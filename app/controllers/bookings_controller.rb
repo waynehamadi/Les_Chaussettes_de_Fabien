@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking.sock = @sock
     @booking.user = current_user
     @booking.save
+    redirect_to bookings_path(@booking)
   end
 
   private
