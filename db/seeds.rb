@@ -1,12 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-## USERS
 Sock.destroy_all
 User.destroy_all
 Booking.destroy_all
 Review.destroy_all
 
+## USERS
 
 users = []
 5.times do
@@ -94,18 +94,74 @@ sock7.user_id = users.sample.id
 sock7.save
 
 
-## BOOKINGS
+## BOOKINGS & REVIEWS
 
-booking = Booking.new()
-booking.sock_id = 1
-booking.user_id = 1
-booking.start_at = "01/06/2019"
-booking.end_at = "06/06/2019"
-booking.save
+booking1 = Booking.new()
+booking1.sock_id = sock1.id
+booking1.user_id = 1
+booking1.start_at = "01/06/2019"
+booking1.end_at = "06/06/2019"
+booking1.save
+review1 = Review.new(rating: 3, content: "Very smelly, maybe too much...?!")
+review1.booking_id = booking1.id
+review1.save
 
-## REVIEWS
+booking2 = Booking.new()
+booking2.sock_id = sock2.id
+booking2.user_id = 1
+booking2.start_at = "01/06/2019"
+booking2.end_at = "06/06/2019"
+booking2.save
+review2 = Review.new(rating: 1, content: "NOT SMELLY ENOUGH!")
+review2.booking_id = booking2.id
+review2.save
 
-review = Review.new(rating: 3, content: "bof")
-review.booking_id = 1
-review.save
+booking3 = Booking.new()
+booking3.sock_id = sock3.id
+booking3.user_id = 1
+booking3.start_at = "01/06/2019"
+booking3.end_at = "06/06/2019"
+booking3.save
+review3 = Review.new(rating: 1, content: "NOT SMELLY ENOUGH!")
+review3.booking_id = booking3.id
+review3.save
 
+booking4 = Booking.new()
+booking4.sock_id = sock4.id
+booking4.user_id = 1
+booking4.start_at = "01/06/2019"
+booking4.end_at = "06/06/2019"
+booking4.save
+review4 = Review.new(rating: 1, content: "NOT SMELLY ENOUGH!")
+review4.booking_id = booking4.id
+review4.save
+
+booking5 = Booking.new()
+booking5.sock_id = sock5.id
+booking5.user_id = 1
+booking5.start_at = "01/06/2019"
+booking5.end_at = "06/06/2019"
+booking5.save
+review5 = Review.new(rating: 1, content: "NOT SMELLY ENOUGH!")
+review5.booking_id = booking5.id
+review5.save
+
+booking6 = Booking.new()
+booking6.sock_id = sock6.id
+booking6.user_id = 1
+booking6.start_at = "01/06/2019"
+booking6.end_at = "06/06/2019"
+booking6.save
+review6 = Review.new(rating: 5, content: "Loved it..... JUST THE RIGHT TEXTURE (and smell...)")
+review6.booking_id = booking6.id
+review6.save
+
+booking7 = Booking.new()
+booking7.sock_id = sock7.id
+booking7.user_id = 1
+booking7.start_at = "01/06/2019"
+booking7.end_at = "06/06/2019"
+booking7.save
+review7 = Review.new(rating: 5, content: "Loved it..... JUST THE RIGHT TEXTURE (and smell...)")
+review7.booking_id = booking7.id
+review7.save
