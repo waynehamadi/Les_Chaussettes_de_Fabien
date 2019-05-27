@@ -8,14 +8,16 @@
   </nav>
 </div>
 
-
-<div class="content">
-  <div class="cards">
-    <% @socks.each do |sock| %>
-    <div class="card" style="background-image: url('<%= cl_image_path sock.photo, height: 500, width: 400, crop: :fill %>')">
-        <%= link_to sock.title, sock_path(sock) %>
-      </div>
-    <% end %>
+<div class="image_background">
+  <div class="content">
+    <div class="cards">
+      <% @socks.each do |sock| %>
+      <div class="card" style="background-image: url('<%= cl_image_path sock.photo, height: 500, width: 400, crop: :fill %>')">
+          <%= link_to sock.title, sock_path(sock) %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
 </div>
+
+
