@@ -1,3 +1,25 @@
+    <div class="d-flex justify-content-center flex-wrap d-block w-100  m-3">
+        <% @socks.each do |sock|%>
+        <div class="card m-3">
+        <%= link_to sock_path(sock) do %>
+        <img src="<%= sock.photo %>" alt="Chaussette" width="160" height="160" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))>
+        <% end %>
+     <%= sock.title %>
+     <%= sock.price %> Price €/day Price * day au total
+      <%= sock.size  %> <%= sock.id  %>
+      </div>
+    <% end %>
+    </div>
+
+
+
+<div class="d-flex justify-content-center">
+  <img class="card-img-top img-index" src="https://res.cloudinary.com/dqwubjw5x/image/upload/v1558703939/150302.jpg-r_1280_720-f_jpg-q_x-xxyxx_ltldfi.jpg" alt="Chaussette" >
+  <img class="card-img-top img-index" src="https://res.cloudinary.com/dqwubjw5x/image/upload/v1558703939/150302.jpg-r_1280_720-f_jpg-q_x-xxyxx_ltldfi.jpg" alt="Chaussette" >
+  <img class="card-img-top img-index" src="https://res.cloudinary.com/dqwubjw5x/image/upload/v1558703939/150302.jpg-r_1280_720-f_jpg-q_x-xxyxx_ltldfi.jpg" alt="Chaussette" >
+  <img class="card-img-top img-index" src="https://res.cloudinary.com/dqwubjw5x/image/upload/v1558703939/150302.jpg-r_1280_720-f_jpg-q_x-xxyxx_ltldfi.jpg" alt="Chaussette" >
+
+</div>
 
 
 <div class="container-fluid px-4 m-3">
@@ -7,23 +29,4 @@
     <a class="flex-sm-fill text-sm-center btn" href="#">Color</a>
     <a class="flex-sm-fill text-sm-center btn" href="#">Smell</a>
   </nav>
-
-
-<h2>Plus de 20 odeurs à découvrir</h2>
-
-<div>
-  <% @socks.each do |sock|%>
-    <div class="card-columns m-4 flex-column">
-      <div class="card">
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/F1_chequered_flag.svg/1200px-F1_chequered_flag.svg.png" alt="Card image cap" >
-      <%= link_to 'Show', sock_path(sock) %>
-      <div class="card-body">
-        <h5 class="card-title"><%= sock.title %></h5>
-        <p class="card-price"><%= sock.price %> Price €/day Price * day au total</p>
-        <p class="card-size"><%= sock.size  %></p>
-        <p class="card-review">Star * Review rate / Review Count </p>
-      </div>
-     </div>
-  <% end %>
 </div>
-
