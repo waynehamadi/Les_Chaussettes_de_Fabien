@@ -31,17 +31,15 @@
     </div>
   </div>
 
- <div class="card-reviews border-top border-bottom py-5">
+ <div class="card-reviews border-top border-bottom py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
   <h2><%= @sock.title %> Reviews</h2>
   <ul class="reviews-list">
   <% @sock.reviews.each do |review| %>
-      <li><%= review.rating %> : <%= review.content %></li>
+      <li class="list-group-item list-reviews"><%= review.rating %> : <%= review.content %></li>
   <% end %>
   </ul>
  </div>
-<div class="container d-flex mt-3 justify-content-between">
-<div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn" %></div>
-=======
+<div class="container d-flex mt-3 justify-content-between pb-3">
   <% if policy(@sock).edit? %>
 <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %></div>
   <% end %>
