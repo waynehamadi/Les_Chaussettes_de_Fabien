@@ -32,12 +32,18 @@
         <td class ="text-center align-middle "><%= booking.end_at %></td>
         <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
         <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price.to_i %>€</td>
-        <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
-          <td class ="text-center align-middle"><%= "Coming soon! 👍"  %></td>
-        <% elsif (booking.end_at < Date.today && booking.start_at < Date.today)%>
-          <td class ="text-center align-middle"><%= "Add a review 📝"  %></td>
-        <% elsif (booking.end_at >= Date.today && booking.start_at >= Date.today)%>
-          <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
+        <% if booking.approved.nil?%>
+          <td class ="text-center align-middle"><%= "Request pending approval..."  %></td>
+        <% elsif booking.approved == "rejected" %>
+          <td class ="text-center align-middle"><%= "Rejected 🚫"  %></td>
+        <% elsif booking.approved == "accepted" %>
+          <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
+            <td class ="text-center align-middle"><%= "Coming soon! 👍"  %></td>
+          <% elsif (booking.end_at < Date.today && booking.start_at < Date.today)%>
+            <td class ="text-center align-middle"><%= "Add a review 📝"  %></td>
+          <% elsif (booking.end_at >= Date.today && booking.start_at >= Date.today)%>
+            <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
+          <% end  %>
         <% end  %>
       </tr>
     </tbody>
