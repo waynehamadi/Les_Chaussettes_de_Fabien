@@ -24,18 +24,18 @@
   <tbody>
     <tr>
       <td class ="text-center align-middle">
-        <%= cl_image_tag booking.sock.photo, height: 80, width: 80, crop: :fill %>
+        <%= cl_image_tag booking.sock.photo, height: 80, width: 80, crop: :fill %><br>
         <%=booking.sock.title %>
-        <%= link_to "", sock_path(booking.sock), class: "card-link" %></td>
+      </td>
       <td class ="text-center align-middle"><%= booking.start_at %></td>
       <td class ="text-center align-middle "><%= booking.end_at %></td>
       <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
-      <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price %>€</td>
+      <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price.to_i %>€</td>
       <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
         <td class ="text-center align-middle"><%= "Coming soon! 👍"  %></td>
-      <% elsif (booking.end_at > Date.today)%>
+      <% elsif (booking.end_at < Date.today && booking.start_at < Date.today)%>
         <td class ="text-center align-middle"><%= "Add a review 📝"  %></td>
-      <% elsif (booking.end_at <= Date.today && booking.start_at >= Date.today)%>
+      <% elsif (booking.end_at >= Date.today && booking.start_at >= Date.today)%>
         <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
       <% end  %>
     </tr>
