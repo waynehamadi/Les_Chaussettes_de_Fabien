@@ -9,10 +9,14 @@ Review.destroy_all
 ## USERS
 
 users = []
-5.times do
+3.times do
   user = User.create(email: Faker::Internet.email, password: Faker::Lorem.characters(7))
   users << user
 end
+fabien = User.create(email: "fabien@gmail.com", password: 123456)
+users << fabien
+merwane = User.create(email: "merwane@gmail.com", password: 123456)
+users << merwane
 
 ## SOCKS
 
@@ -24,7 +28,7 @@ sock1 = Sock.new(title:"AMAZING SPIDERMAN",
   size: "38-40",
   color: "red")
 sock1.remote_photo_url = url1
-sock1.user_id = users.sample.id
+sock1.user_id = fabien.id
 sock1.save
 
 url2 = "https://res.cloudinary.com/dqwubjw5x/image/upload/v1558961372/MIAMI_SKYLINE_PRO_u87pue.jpg"
@@ -98,7 +102,7 @@ sock7.save
 
 booking1 = Booking.new()
 booking1.sock_id = sock1.id
-booking1.user_id = 1
+booking1.user_id = merwane.id
 booking1.start_at = "01/06/2019"
 booking1.end_at = "06/06/2019"
 booking1.save
