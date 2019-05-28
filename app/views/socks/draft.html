@@ -1,0 +1,148 @@
+<div class="container">
+  <p class="justify-content-center"> Some of most reviewed <strong> socks </strong> in the community</p>
+  <div class="card">
+
+    <div class="card-trip"><% @socks.each do |sock| %>
+      <%= link_to 'Show', sock_path(sock) %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sock.photo, crop: :fit %>)">
+        </div>
+
+        <div class="card-trip-infos">
+
+          <div>
+            <h2><%= sock.title %></h2>
+            <p><%= sock.category %></p>
+          </div>
+
+          <h2 class="card-trip-pricing"><%= sock.price %>€</h2>
+          <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="cards-grid card">
+<div class="card-trip"><% @socks.each do |sock| %>
+  <img src="<%= cl_image_path sock.photo, crop: :fit %>">
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= sock.title %></h2>
+      <p><%= sock.category %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= sock.price %>€</h2>
+    <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+  </div> <% end %>
+</div> </div>
+
+</div>
+
+
+
+
+<div class="container">
+<p class="justify-content-center"> Some of most reviewed <strong> socks </strong> in the community</p>
+<div class="content">
+  <div class="cards-grid">
+    <% @socks.each do |sock| %>
+    <div>
+      <% link_to sock_path(sock) do %>
+      <%= cl_image_path sock.photo, height: 120, width: 120, crop: :fit %>
+      <% end %>
+
+      <%= link_to sock_path(sock) do %>
+
+      <div class="card">
+        <% end %>
+
+ <!-- style="background-image: url('<%= cl_image_path sock.photo, height: 120, width: 120, crop: :fit %>')"> -->
+        <h5 class="card-title"><%= sock.title %></h5>
+      <div class="card-price"><%= sock.price %>€ per day</div>
+        <h6 class="card-category">Picto cate<%= sock.category %></h6>
+    </div>     </div>
+    <% end %>
+  </div>
+
+</div>
+
+</div>
+<!-- myview.html.erb -- assuming I'm using Twitter Bootstrap -->
+ <% @socks.each_slice(3) do |sock| %>
+  <div class="row"> <!-- Each row of my Grid -->
+  <% @socks.each do |sock| %>
+    <!-- Each item in my grids row -->
+    <div class="offset1 span3"><%= sock.title %></div>
+  <% end %>
+  </div>
+<% end %>
+
+
+<div class="container">
+<p class="justify-content-center"> Some of most reviewed <strong> socks </strong> in the community</p>
+<div class="content">
+  <div class="cards-grid">
+    <% @socks.each do |sock| %>
+    <div>
+      <% link_to sock_path(sock) do %>
+      <%= cl_image_path sock.photo, height: 120, width: 120, crop: :fit %>
+      <% end %>
+
+      <%= link_to sock_path(sock) do %>
+
+      <div class="card">
+        <% end %>
+
+ <!-- style="background-image: url('<%= cl_image_path sock.photo, height: 120, width: 120, crop: :fit %>')"> -->
+        <h5 class="card-title"><%= sock.title %></h5>
+      <div class="card-price"><%= sock.price %>€ per day</div>
+        <h6 class="card-category">Picto cate<%= sock.category %></h6>
+    </div>     </div>
+    <% end %>
+  </div>
+
+</div>
+
+</div>
+<!-- myview.html.erb -- assuming I'm using Twitter Bootstrap -->
+ <% @socks.each_slice(3) do |sock| %>
+  <div class="row"> <!-- Each row of my Grid -->
+  <% @socks.each do |sock| %>
+    <!-- Each item in my grids row -->
+    <div class="offset1 span3"><%= sock.title %></div>
+  <% end %>
+  </div>
+<% end %>
+
+
+
+<div class="container">
+  <p class="justify-content-center"> Some of most reviewed <strong> socks </strong> in the community</p>
+  <div class="card">
+
+    <div class="card-trip"><% @socks.each do |sock| %>
+      <%= link_to 'Show', sock_path(sock) %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sock.photo, crop: :fit %>)">
+        </div>
+
+        <div class="card-trip-infos">
+
+          <div>
+            <h2><%= sock.title %></h2>
+            <p><%= sock.category %></p>
+          </div>
+
+          <h2 class="card-trip-pricing"><%= sock.price %>€</h2>
+          <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

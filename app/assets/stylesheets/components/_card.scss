@@ -5,47 +5,35 @@
   border-color: #A9A5AA;
 }
 
-.card {
-  background-color: white;
-  height: 120px;
-  width: 160px;
-  margin: 10px 0px 0px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
+////.card-body {
+  ///width: 700px;
+  //text-align: center;
+  //background-color: white;
+//}
 
-.card-bottom {
-  background-color: white;
-  width: 160px;
-  height: 120px;
-  margin: 0px 30px 10px 50px;
-  display: flex;
-  font-size: 15px;
-    background-color: #fff;
-   }
-
-
-.card-bottom-title{
-    font-weight: 400;
-    color: #333333;
-}
-.card-bottom-price{
-    font-weight: 200;
-    color: #EE575D;
-}
-
-
-.cards {
+.cards-grid {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 }
 
-.card-body {
-  width: 600px;
-  text-align: center;
-  background-color: white;
+
+///.card {
+  // background-color: white;
+  //height: 120px;
+  //width: 160px;
+  //margin: 10px 0px 0px  0px;
+  // align-items: center;
+//}
+
+.card-title{
+    font-weight: 400;
+    color: #333333;
+}
+.card-price{
+    font-weight: 200;
+    color: #EE575D;
 }
 
 .card-body-form {
@@ -91,3 +79,126 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+
+// --- wagon ui kit ---
+.card {
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+ .card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.card-link {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+}
+
+
+.card-trip > img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
