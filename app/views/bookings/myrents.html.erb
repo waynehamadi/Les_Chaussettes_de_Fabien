@@ -1,12 +1,14 @@
 <div class="container">
   <h1> My bookings </h1>
 
-<nav aria-label="breadcrumb">
+<nav aria-label="breadc
+rumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
     <li class="breadcrumb-item"><%= link_to 'My account', root_path %></li>
-    <li class="breadcrumb-item active" aria-current="page">My bookings</li>
-    <li class="breadcrumb-item"><%= link_to 'My rents', bookings_myrents_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'My bookings', bookings_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">My rents</li>
+
   </ol>
 </nav>
 
@@ -19,7 +21,7 @@
       <th scope="col">Booking end</th>
       <th scope="col">Booking length</th>
       <th scope="col">Status</th>
-      <th scope="col"></th>
+      <th scope="col">Approve ?</th>
     </tr>
   </thead>
   <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
@@ -30,14 +32,12 @@
       <td><%= booking.start_at %></td>
       <td><%= booking.end_at %></td>
       <td><%= (booking.end_at - booking.start_at).to_i%> day(s)</td>
-      <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
-        <td><%= "Coming soon!"  %></td>
-      <% elsif (booking.end_at > Date.today)%>
-        <td><%= "Add a review"  %></td>
-      <% elsif (booking.end_at <= Date.today && booking.start_at >= Date.today)%>
-        <td><%= "In progress.....!"  %></td>
-      <% end  %>
-      <td><%= link_to 'Show product', sock_path(booking.sock) %></td>
+      <td><%= booking.approved %></td>
+
+      <td>
+        <%= link_to "yes", booking_path(booking.id, approved:true,) %>
+        <%= link_to "no", booking_path(booking.id, approved:false,) %>
+      </td>
     </tr>
   </tbody>
   <% end %>
