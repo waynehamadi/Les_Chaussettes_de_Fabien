@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
   def myrents
     @bookings = []
     @socks = Sock.where(user: current_user)
-    booking = Booking.where(sock_id: @socks.first.id).first
+    @socks == [] ? booking = Booking.new : Booking.where(sock_id: @socks.first.id).first
     @bookings << booking
     authorize @bookings
   end
