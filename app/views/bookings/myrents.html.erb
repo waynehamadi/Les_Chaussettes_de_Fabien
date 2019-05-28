@@ -8,7 +8,9 @@
     <li class="breadcrumb-item active" aria-current="page">My rents</li>
   </ol>
 </nav>
-<% unless @bookings.count <= 1 %>
+
+<% unless @bookings.count == 1 && @bookings.first.id == nil %>
+  
   <table class="table table-striped bg-white">
     <thead>
       <tr>
@@ -37,8 +39,8 @@
           <td class ="text-center align-middle"><%= booking.approved %></td>
         <% end %>
         <td class ="text-center align-middle">
-            <%= link_to "yes", booking_path(booking.id, approved:true,) %>
-            <%= link_to "no", booking_path(booking.id, approved:false,) %>
+            <%= link_to "yes", booking_path(booking.id, approved: "accepted",) %>
+            <%= link_to "no", booking_path(booking.id, approved:"rejected",) %>
         </td>
       </tr>
     </tbody>

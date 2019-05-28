@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     if params["approved"] == "true"
       @booking.approved = "accepted"
     else
-      @booking.approved = "refused"
+      @booking.approved = "rejected"
     end
     @booking.save
     authorize @booking
