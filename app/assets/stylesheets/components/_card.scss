@@ -113,13 +113,16 @@
  .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
   position: relative;
   margin-right: 20px;
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .card-link {
@@ -133,8 +136,8 @@ right: 0;
 
 .card-trip > img {
   height: 220px;
-  width: 100%;
   object-fit: cover;
+  padding-left: 30px;
 
 }
 
@@ -152,7 +155,7 @@ right: 0;
 
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
