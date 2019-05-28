@@ -1,6 +1,6 @@
 .card-purple {
   background-color: #FFFFF;
-  color: #FFFC04;
+  color: #333333;
   justify-content: center;
   border: solid 1px;
   border-color: #FBFBFB;
@@ -13,10 +13,10 @@
 }
 
 .card-reviews {
-  color: #FFFC04;
+  color:  #333333;
   border-top: solid 1px;
   border-bottom: solid 1px;
-  border-color: #FFFC04;
+  border-color: #A9A5AA;
 }
 
 .card {
@@ -33,7 +33,6 @@
   background-color: white;
   width: 160px;
   height: 120px;
-
   margin: 0px 30px 10px 50px;
   display: flex;
   font-size: 15px;
@@ -60,10 +59,12 @@
 .card-body {
   width: 600px;
   text-align: center;
+  background-color: white;
 }
 
 .card-body-form {
   width: 400px;
   text-align: center;
   padding: 10px;
+  background-color: white;
 }

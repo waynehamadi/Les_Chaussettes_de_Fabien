@@ -1,3 +1,6 @@
+
+
+
 <div class="container">
   <div class="big-card-show justify-content-around py-5">
     <div class="card-purple">
@@ -29,7 +32,7 @@
           <%= simple_form_for([@sock, @booking]) do |f| %>
             <%= f.input :start_at %>
             <%= f.input :end_at %>
-            <%= f.button :submit, "I WANT THESE!", class:"btn justify-content-cente"%>
+            <%= f.button :submit, "I WANT THESE!", class:"btn btn-danger justify-content-center"%>
           <% end %>
         </div>
       </div>
@@ -43,4 +46,4 @@
   <div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>
   </div>
     <% end %>
-  <div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn" %></div>
+  <div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn btn-success" %></div>
