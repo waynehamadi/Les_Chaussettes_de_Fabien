@@ -1,6 +1,6 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to socks_path, class: "navbar-brand" do %>
     <img src="https://res.cloudinary.com/dqwubjw5x/image/upload/v1558710620/logo_ids8ck.png" alt="">
     LCDF
   <% end %>
@@ -18,8 +18,10 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-<button type="button" class="btn btn-outline-success" >+ Add socks</button>
+    <ul class="navbar-nav mr-auto">  <%= link_to new_sock_path do %>
+<button type="button" class="btn btn-outline-success m-3 align-top" ><i class="fas fa-plus-circle"></i> Add socks</button>  <% end %>
+
+
       <li class="nav-item dropdown">
         <%= image_tag "https://res.cloudinary.com/dqwubjw5x/image/upload/v1558703939/150302.jpg-r_1280_720-f_jpg-q_x-xxyxx_ltldfi.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
