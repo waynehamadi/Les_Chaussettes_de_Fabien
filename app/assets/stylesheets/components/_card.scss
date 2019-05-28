@@ -188,6 +188,13 @@ right: 0;
   }
 }
 
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
@@ -201,4 +208,3 @@ right: 0;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
