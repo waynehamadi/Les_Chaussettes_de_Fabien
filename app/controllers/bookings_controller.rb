@@ -6,6 +6,14 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    if params["approved"] == "true"
+      @booking.approved = "accepted"
+    else
+      @booking.approved = "refused"
+    end
+    @booking.save
+    authorize @booking
+    redirect_to bookings_myrents_path
   end
 
   def new
@@ -20,6 +28,18 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.save
     redirect_to bookings_path(@booking)
+  end
+
+  def myrents
+    @bookings = []
+    @socks = Sock.where(user: current_user)
+    @socks == [] ? booking = Booking.new : Booking.where(sock_id: @socks.first.id).first
+    @bookings << booking
+    authorize @bookings
+  end
+
+  def accept
+
   end
 
   private

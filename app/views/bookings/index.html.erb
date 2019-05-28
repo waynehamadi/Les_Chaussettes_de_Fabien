@@ -5,6 +5,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page">My bookings</li>
     <li class="breadcrumb-item"><%= link_to 'My catalog', socks_mysocks_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'My rents', bookings_myrents_path %></li>
   </ol>
 </nav>
 
@@ -20,7 +21,6 @@
       <th scope="col"></th>
     </tr>
   </thead>
-
   <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
   <tbody>
     <tr>
