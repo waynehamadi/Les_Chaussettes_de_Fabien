@@ -5,10 +5,15 @@
     <img src="<%= cl_image_path sock.photo %>">
     <div class="card-trip-infos">
       <div>
-        <h2><%= sock.title %></h2>
-        <p><%= sock.category %></p>
-        <p>review</p>
-
+        <h1><%= sock.title %></h1>
+        <ul class="reviews-list">
+        <% sock.reviews.each do |review| %>
+          <li class="list-group-item list-reviews">
+            Rating<% review.rating.times do %>
+              <i class="fas fa-socks" style="color:#54BC83"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
       </div>
       <h2 class="card-trip-pricing"><%= sock.price %>€ / day</h2>
       <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
@@ -18,3 +23,5 @@
     <% end %>
 </div>
 </div>
+
+
