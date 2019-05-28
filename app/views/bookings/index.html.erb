@@ -1,6 +1,4 @@
 <div class="container">
-  <h1> My bookings </h1>
-
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page">My bookings</li>
@@ -18,6 +16,7 @@
       <th class ="text-center" scope="col">Booking length</th>
       <th class ="text-center" scope="col">Price paid</th>
       <th class ="text-center" scope="col">Status</th>
+      <th class ="text-center" scope="col">Add a review</th>
     </tr>
   </thead>
   <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
@@ -35,8 +34,8 @@
       <% elsif (booking.end_at < Date.today && booking.start_at < Date.today)%>
         <td class ="text-center align-middle"><%= "Add a review 📝"  %></td>
       <% elsif (booking.end_at >= Date.today && booking.start_at >= Date.today)%>
-        <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
       <% end  %>
+      <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
     </tr>
   </tbody>
   <% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'socks/mysocks', to: 'socks#mysocks'
   resources :socks do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:new]
   end
   get 'bookings/myrents', to: 'bookings#myrents'
   resources :bookings, only: [:index, :show]
