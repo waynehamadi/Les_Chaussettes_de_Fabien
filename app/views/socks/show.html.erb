@@ -29,7 +29,9 @@
     </div>
   <div class="container d-flex justify-content-between mt-3 px-0">
     <% if policy(@sock).edit? %>
-  <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %></div>
+      <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %>
+
+      </div>
     <% end %>
     <% if policy(@sock).destroy? %>
   <div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>
