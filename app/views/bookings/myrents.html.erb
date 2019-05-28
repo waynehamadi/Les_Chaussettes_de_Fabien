@@ -8,8 +8,9 @@
     <li class="breadcrumb-item active" aria-current="page">My rents</li>
   </ol>
 </nav>
-<% unless @bookings.count == 1 && @bookings.first.id == nil %>
 
+<% unless @bookings.count == 1 && @bookings.first.id == nil %>
+  
   <table class="table table-striped bg-white">
     <thead>
       <tr>
