@@ -21,8 +21,8 @@
         <h5 class="card-title">Book these Socks</h5>
         <h6 class="card-subtitle mb-2">Add your dates</h6>
         <%= simple_form_for([@sock, @booking]) do |f| %>
-          <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker"} %>
+          <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"} %>
           <%= f.button :submit, "I WANT THESE!", class:"btn btn-danger justify-content-center"%>
         <% end %>
       </div>

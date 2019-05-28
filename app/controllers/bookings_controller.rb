@@ -26,8 +26,11 @@ class BookingsController < ApplicationController
     @sock = Sock.find(params[:sock_id])
     @booking.sock = @sock
     @booking.user = current_user
-    @booking.save
-    redirect_to bookings_path(@booking)
+    if @booking.save
+      redirect_to bookings_path(@booking)
+    else
+      render 'socks/show'
+    end
   end
 
   def myrents
