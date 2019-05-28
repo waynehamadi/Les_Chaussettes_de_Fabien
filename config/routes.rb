@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :socks do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:index]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'bookings/myrents', to: 'bookings#myrents'
+  resources :bookings, only: [:index, :show]
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
