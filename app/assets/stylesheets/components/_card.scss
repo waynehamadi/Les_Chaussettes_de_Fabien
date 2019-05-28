@@ -1,9 +1,9 @@
 .card-purple {
-  background-color: #020959;
+  background-color: #FFFFF;
   color: #FFFC04;
   justify-content: center;
   border: solid 1px;
-  border-color: #FFFC04;
+  border-color: #FBFBFB;
 }
 
 .big-card-show {
@@ -20,34 +20,36 @@
 }
 
 .card {
-  background-size: cover;
-  background-position: center;
-  height: 250px;
-  border-radius: 1px;
-  margin: 10px 50px 0px 50px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background-color: white;
+  height: 120px;
+  width: 160px;
+  margin: 10px 0px 0px 50px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-size: 25px;
-  color: white;
-  font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
+
 .card-bottom {
-  text-decoration: none;
-  background-color: #020959;
-  color: #FFFC04;
-  height: 40px;
-  border-radius: 1px;
-  margin: 0px 50px 10px 50px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background-color: white;
+  width: 160px;
+  height: 120px;
+
+  margin: 0px 30px 10px 50px;
   display: flex;
-  font-size: 25px;
-  color: #FFFC04;
-  font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  font-size: 15px;
+    background-color: #fff;
+   }
+
+
+.card-bottom-title{
+    font-weight: 400;
+    color: #333333;
 }
+.card-bottom-price{
+    font-weight: 200;
+    color: #EE575D;
+}
+
 
 .cards {
   flex-grow: 1;
