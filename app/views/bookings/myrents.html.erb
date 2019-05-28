@@ -3,14 +3,12 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item " aria-current="page">
-      <%= link_to 'My bookings', bookings_path %>
-    </li>
+    <li class="breadcrumb-item active"><%= link_to 'My bookings', bookings_path %></li>
     <li class="breadcrumb-item"><%= link_to 'My catalog', socks_mysocks_path %></li>
     <li class="breadcrumb-item active" aria-current="page">My rents</li>
   </ol>
 </nav>
-<% unless @bookings == [] %>
+<% unless @bookings.count <= 1 %>
   <table class="table table-striped bg-white">
     <thead>
       <tr>
@@ -33,7 +31,11 @@
         <td class ="text-center align-middle "><%= booking.end_at %></td>
         <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
         <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price.to_i %>€</td>
-        <td class ="text-center align-middle"><%= booking.approved %></td>
+        <% if booking.approved.nil? %>
+          <td class ="text-center align-middle">pending</td>
+        <% else %>
+          <td class ="text-center align-middle"><%= booking.approved %></td>
+        <% end %>
         <td class ="text-center align-middle">
             <%= link_to "yes", booking_path(booking.id, approved:true,) %>
             <%= link_to "no", booking_path(booking.id, approved:false,) %>
@@ -42,9 +44,12 @@
     </tbody>
     <% end %>
   </table>
-<% else %>
-  <p>You don't have any rents at the moment</p>
-<% end %>
+
+  <% else %>
+    <p> You have never rented a pair of socks ?! </p>
+    <%= link_to 'Let\'s try now', new_sock_path %>
+  <% end %>
+
 </div>
 
 

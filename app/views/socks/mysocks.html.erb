@@ -1,34 +1,49 @@
-<h2>Toutes vos chaussettes</h2>
+<div class="container">
+  <h1> My catalog </h1>
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to 'My bookings', bookings_path %></li>
+    <li class="breadcrumb-item active"><%= link_to 'My bookings', bookings_path %></li>
     <li class="breadcrumb-item active" aria-current="page">My catalog</li>
+    <li class="breadcrumb-item"><%= link_to 'My rents', bookings_myrents_path %></li>
   </ol>
 </nav>
 
-<div>
-  <% @socks.each do |sock|%>
-    <div class="card-columns m-4 flex-column">
-      <div class="card">
-        <p class="card-img-top"><%= sock.photo %></p>
-        <div class="card-body">
-          <h5 class="card-title"><%= sock.title %> </h5>
-          <p class="card-price"><%= sock.price %> Price €/day Price * day au total</p>
-          <p class="card-size"><%= sock.size  %></p>
-          <p class="card-review">Star * Review rate / Review Count </p>
-          <%= link_to 'Show', sock_path(sock) %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-</div>
+<% unless @socks.count == 0 %>
 
-<% if @socks.count == 0 %>
+  <table class="table table-striped bg-white">
+
+    <thead>
+      <tr>
+        <th class ="text-center" scope="col">Name</th>
+        <th class ="text-center" scope="col">Picture</th>
+        <th class ="text-center" scope="col">Description</th>
+        <th class ="text-center" scope="col">Price</th>
+        <th class ="text-center" scope="col">Category</th>
+        <th class ="text-center" scope="col">Color</th>
+        <th class ="text-center" scope="col"></th>
+      </tr>
+    </thead>
+
+    <% @socks.each do |sock|%>
+    <tbody>
+      <tr>
+        <td class ="text-center align-middle"><%= link_to "#{sock.title}", sock_path(sock) %></td>
+        <td class ="text-center align-middle">
+          <%= cl_image_tag sock.photo, height: 80, width: 80, crop: :fill %></td>
+        <td class ="text-center align-middle"><%= sock.description %></td>
+        <td class ="text-center align-middle "><%= sock.price %></td>
+        <td class ="text-center align-middle"><%= sock.category %></td>
+        <td class ="text-center align-middle"><%= sock.color %></td>
+        <td class ="text-center align-middle"><%= link_to "UPDATE", edit_sock_path(sock), class: "btn" %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+
+<% else %>
 <p>Your catalog is empty! Take 1 min and start to rent your socks now</p>
   <%= link_to 'Let\'s go', new_sock_path %>
-  <% end %>
-</ul>
+<% end %>
 
-
-<script type="text/javascript"></script>
+</div>
