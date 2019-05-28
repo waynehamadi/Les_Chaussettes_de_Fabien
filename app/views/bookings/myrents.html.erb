@@ -1,14 +1,13 @@
 <div class="container">
   <h1> My bookings </h1>
 
-<nav aria-label="breadc
-rumb">
+<nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
-    <li class="breadcrumb-item"><%= link_to 'My account', root_path %></li>
-    <li class="breadcrumb-item"><%= link_to 'My bookings', bookings_path %></li>
+    <li class="breadcrumb-item " aria-current="page">
+      <%= link_to 'My bookings', bookings_path %>
+    </li>
+    <li class="breadcrumb-item"><%= link_to 'My catalog', socks_mysocks_path %></li>
     <li class="breadcrumb-item active" aria-current="page">My rents</li>
-
   </ol>
 </nav>
 <% unless @bookings = [] %>
