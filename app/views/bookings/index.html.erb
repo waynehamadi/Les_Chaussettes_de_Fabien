@@ -12,36 +12,35 @@
 <table class="table table-striped bg-white">
   <thead>
     <tr>
-      <th scope="col justify-content-center">Booking ref</th>
-      <th scope="col">My booked product</th>
-      <th scope="col">Booking start</th>
-      <th scope="col">Booking end</th>
-      <th scope="col">Booking length</th>
-      <th scope="col">Status</th>
-      <th scope="col"></th>
+      <th class ="text-center" scope="col">My pair of socks</th>
+      <th class ="text-center" scope="col">Booking start</th>
+      <th class ="text-center" scope="col">Booking end</th>
+      <th class ="text-center" scope="col">Booking length</th>
+      <th class ="text-center" scope="col">Price paid</th>
+      <th class ="text-center" scope="col">Status</th>
     </tr>
   </thead>
 
   <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
   <tbody>
     <tr>
-      <th scope="row align-items-center"><%= booking.id %></th>
-      <td><%= booking.sock.title %></td>
-      <td><%= booking.start_at %></td>
-      <td><%= booking.end_at %></td>
-      <td><%= (booking.end_at - booking.start_at).to_i%> day(s)</td>
+      <td class ="text-center align-middle">
+        <%= cl_image_tag booking.sock.photo, height: 80, width: 80, crop: :fill %>
+        <%=booking.sock.title %>
+        <%= link_to "", sock_path(booking.sock), class: "card-link" %></td>
+      <td class ="text-center align-middle"><%= booking.start_at %></td>
+      <td class ="text-center align-middle "><%= booking.end_at %></td>
+      <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
+      <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price %>€</td>
       <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
-        <td><%= "Coming soon!"  %></td>
+        <td class ="text-center align-middle"><%= "Coming soon! 👍"  %></td>
       <% elsif (booking.end_at > Date.today)%>
-        <td><%= "Add a review"  %></td>
+        <td class ="text-center align-middle"><%= "Add a review 📝"  %></td>
       <% elsif (booking.end_at <= Date.today && booking.start_at >= Date.today)%>
-        <td><%= "In progress.....!"  %></td>
+        <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
       <% end  %>
-      <td><%= link_to 'Show product', sock_path(booking.sock) %></td>
     </tr>
   </tbody>
   <% end %>
 </table>
 </div>
-
-
