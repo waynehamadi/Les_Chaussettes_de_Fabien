@@ -13,6 +13,7 @@ before_action :authenticate_user!
   #   redirect_to(root_path)
   # end
 
+
   private
 
   def skip_pundit?
