@@ -10,7 +10,7 @@
     <li class="breadcrumb-item active" aria-current="page">My rents</li>
   </ol>
 </nav>
-<% unless @bookings = [] %>
+<% unless @bookings == [] %>
   <table class="table table-striped bg-white">
     <thead>
       <tr>
@@ -28,8 +28,7 @@
       <tr>
         <td class ="text-center align-middle">
           <%= cl_image_tag booking.sock.photo, height: 80, width: 80, crop: :fill %><br>
-          <%=booking.sock.title %>
-          <%= link_to "", sock_path(booking.sock), class: "card-link" %></td>
+          <%= link_to "#{booking.sock.title}", sock_path(booking.sock) %></td>
         <td class ="text-center align-middle"><%= booking.start_at %></td>
         <td class ="text-center align-middle "><%= booking.end_at %></td>
         <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
