@@ -36,7 +36,7 @@
           <td class ="text-center align-middle bg-white"><%= booking.approved %></td>
         <% end %>
         <td class ="text-center align-middle bg-white">
-            <%= link_to "✅", booking_path(booking.id, approved: "accepted",) %>
+            <%= link_to "✅", booking_path(booking.id, approved: "accepted"), {style: "text-decoration: none;"} %>
             <%= link_to "❌", booking_path(booking.id, approved:"rejected",) %>
         </td>
       </tr>
