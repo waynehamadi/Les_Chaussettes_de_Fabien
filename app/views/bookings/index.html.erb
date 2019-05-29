@@ -18,7 +18,6 @@
         <th class ="text-center" scope="col">Booking length</th>
         <th class ="text-center" scope="col">Price paid</th>
         <th class ="text-center" scope="col">Status</th>
-        <th class ="text-center" scope="col">Add a review</th>
       </tr>
     </thead>
     <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
@@ -36,21 +35,22 @@
         <% elsif booking.approved == "rejected" %>
           <td class ="text-center align-middle bg-white"><%= "Rejected 🚫"  %></td>
         <% elsif booking.approved == "accepted" %>
+
           <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
             <td class ="text-center align-middle bg-white"><%= "Approved! ✅"  %></td>
-          <% elsif (booking.end_at < Date.today && booking.start_at < Date.today)%>
-            <td class ="text-center align-middle bg-white"><%= "Add a review 📝"  %></td>
-          <% elsif (booking.end_at >= Date.today && booking.start_at >= Date.today)%>
-            <td class ="text-center align-middle bg-white"><%= "In progress...! 🎉"  %></td>
-          <% end  %>
-        <% end  %>
-          <% if policy(Review.new(booking_id: booking.id)).new? %>
-          <td class ="text-center align-middle bg-white">
-            <%= link_to "Add a review!", new_booking_review_path(booking), class:"btn btn-primary" %>
-            </td>
+          <% elsif (booking.end_at <= Date.today && booking.start_at <= Date.today)%>
+            <% if policy(Review.new(booking_id: booking.id)).new? %>
+              <td class ="text-center align-middle bg-white">
+                <%= link_to "Add a review!", new_booking_review_path(booking), class:"btn btn-primary" %>
+              </td>
             <% else %>
             <td class ="text-center align-middle bg-white"><%= "Thanks! Your review has been added! 🎉"  %></td>
           <% end %>
+          <% elsif (booking.end_at > Date.today && booking.start_at >= Date.today)%>
+            <td class ="text-center align-middle bg-white"><%= "In progress...! 🎉"  %></td>
+          <% end  %>
+        <% end  %>
+
       </tr>
     </tbody>
     <% end %>
