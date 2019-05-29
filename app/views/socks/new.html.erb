@@ -13,7 +13,7 @@
               <%= f.input :price %>
             </div>
             <div class="col-xs-6">
-              <%= f.collection :category, ["Men", "Women", ""] %>
+              <%= f.input :category, collection: %w[men women kids] %>
             </div>
           </div>
           <div class="form-flex">
@@ -21,7 +21,7 @@
               <%= f.input :description, :input_html => { :class => 'description-inputs' } %>
             </div>
             <div class="col-xs-6">
-              <%= f.input :size %>
+              <%= f.input :category, collection: %w[34-36 36-38 38-40 40-42 42-44] %>
             </div>
             <div class="col-xs-6">
               <%= f.input :color %>
