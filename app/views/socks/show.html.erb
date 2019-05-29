@@ -1,13 +1,20 @@
 <div class="container">
-  <div class="card-product">
+
+  <div class="card-product d-flex flex-column">
+
+  <div class="d-flex card-product-container mt-5">
+    <div class="image-product-info">
+      <%= cl_image_tag @sock.photo %>
+    </div>
+
     <div class="card-product-infos">
-      <%= cl_image_tag @sock.photo, height: 300, width: 400, crop: :fill %>
       <h2><%= @sock.title %></h2>
       <h2><%= @sock.dirtyness %></h2>
-      <p><%= @sock.description %></p>
       <p>Size: <%= @sock.size %></p>
       <p>Price: <%= @sock.price %> €/day</p>
       <p> Owner: Andre Lavilliers</p>
+      <p><%= @sock.description %></p>
+      <h2>Reviews</h2>
       <ul class="reviews-list">
       <% @sock.reviews.each do |review| %>
         <li class="list-group-item list-reviews">
@@ -17,24 +24,36 @@
       <% end %>
       </ul>
     </div>
+
       <div class="card-body-form">
         <h5 class="card-title">Book these Socks</h5>
-        <h6 class="card-subtitle mb-2">Add your dates</h6>
         <%= simple_form_for([@sock, @booking]) do |f| %>
-          <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker"} %>
-          <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"} %>
+        <div class="d-flex flex-column">
+           <div class="p-2"><%= f.input :start_at, as: :string, placeholder: "Start date", input_html: {class: "datepicker"} %></div>
+           <div class="p-2"><%= f.input :end_at, as: :string, required: true, placeholder: "End date",input_html: {class: "datepicker"} %></div>
+         </div>
           <%= f.button :submit, "I WANT THESE!", class:"btn btn-danger justify-content-center"%>
         <% end %>
       </div>
     </div>
-  <div class="container d-flex justify-content-between mt-3 px-0">
+
+      <div class="container d-flex justify-content-bo mt-4 p-4 justify-content-between align-items-end">
     <% if policy(@sock).edit? %>
-      <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %>
+      <div class="btn btn-success btn-show"><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %>
 
       </div>
     <% end %>
-    <% if policy(@sock).destroy? %>
-  <div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>
+
+      <% if policy(@sock).destroy? %>
+        <div class="btn btn-danger btn-show"><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %>
+        </div>
+      </div>
+
   </div>
+
     <% end %>
-  <div><%= link_to "BACK TO SOCKS LIST", socks_path, class: "btn btn-success" %></div>
+  <div><%= link_to socks_path do  %>
+    <i class="fas fa-arrow-left"></i>back
+    <% end  %>
+  </div>
+</div>
