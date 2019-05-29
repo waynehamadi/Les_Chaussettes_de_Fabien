@@ -1,13 +1,47 @@
-<%= simple_form_for(@sock) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :color %>
-  <%= f.input :price %>
-  <%= f.input :size %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit %>
-<% end %>
-
-<!-- user_id a supprimer -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-sock">
+        <h1>Sock New !</h1>
+        <%= simple_form_for(@sock) do |f| %>
+        <div class="row">
+          <div class="form-flex">
+            <div class="col-xs-6">
+              <%= f.input :title, placeholder: "Put a name that Socks!" %>
+            </div>
+            <div class="col-xs-6">
+              <%= f.input :price %>
+            </div>
+            <div class="col-xs-6">
+              <%= f.input :category %>
+            </div>
+          </div>
+          <div class="form-flex">
+            <div class="col-xs-6">
+              <%= f.input :description, :input_html => { :class => 'description-inputs' } %>
+            </div>
+            <div class="col-xs-6">
+              <%= f.input :size %>
+            </div>
+            <div class="col-xs-6">
+              <%= f.input :color %>
+            </div>
+          </div>
+          <p style="padding-left: 9px;margin: 0;color: black;">Dirtyness</p><br>
+          <div class="dirtyness-choices px-2 mt-2">
+            <% ["Dirty", "Too Much ?", "Insane !"].each do |category| %>
+              <input type="radio" class="hidden d-none" value="<%= category %>" name="sock[dirtyness]" id="sock_dirtyness_<%= category %>">
+              <label class="dirtyness-choice" for="sock_dirtyness_<%= category %>">
+                <%= category %>
+              </label>
+            <% end %>
+           </div>
+        </div>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.submit "Create", class: "btn btn-success"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

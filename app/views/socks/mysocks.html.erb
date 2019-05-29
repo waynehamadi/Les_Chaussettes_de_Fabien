@@ -3,12 +3,11 @@
 
 <% unless @socks.count == 0 %>
 
-  <table class="table table-striped bg-white">
+  <table class="table table-striped bg-white p-10">
 
     <thead>
       <tr>
-        <th class ="text-center" scope="col">Name</th>
-        <th class ="text-center" scope="col">Picture</th>
+        <th class ="text-center p-10" scope="col">My pair of socks</th>
         <th class ="text-center" scope="col">Description</th>
         <th class ="text-center" scope="col">Price</th>
         <th class ="text-center" scope="col">Category</th>
@@ -20,18 +19,19 @@
     <% @socks.each do |sock|%>
     <tbody>
       <tr>
-        <td class ="text-center align-middle"><%= link_to "#{sock.title}", sock_path(sock) %></td>
-        <td class ="text-center align-middle">
-          <%= cl_image_tag sock.photo, height: 80, width: 80, crop: :fill %></td>
-        <td class ="text-center align-middle"><%= sock.description %></td>
-        <td class ="text-center align-middle "><%= sock.price %></td>
-        <td class ="text-center align-middle"><%= sock.category %></td>
-        <td class ="text-center align-middle"><%= sock.color %></td>
-        <td class ="text-center align-middle"><%= link_to "UPDATE", edit_sock_path(sock), class: "btn" %></td>
+        <td class ="text-center align-middle bg-white col-md-2">
+          <%= cl_image_tag sock.photo, height: 80, width: 80, crop: :fill %><br>
+          <%= link_to "#{sock.title.capitalize}", sock_path(sock) %></td>
+        <td class ="text-center align-middle bg-white col-md-6"><%= sock.description %></td>
+        <td class ="text-center align-middle bg-white col-md-2"><%= sock.price %>€</td>
+        <td class ="text-center align-middle bg-white col-md-2"><%= sock.category %></td>
+        <td class ="text-center align-middle bg-white col-md-2"><%= sock.color %></td>
+        <td class ="text-center align-middle bg-white col-md-2"><%= link_to "UPDATE", edit_sock_path(sock), class: "btn btn-success" %></td>
       </tr>
     </tbody>
     <% end %>
   </table>
+  <p class ="text-center align-middle bg-white "><%= link_to "ADD A NEW SOCK", new_sock_path, class: "btn btn-success" %></p>
 
 <% else %>
 <p>Your catalog is empty! Take 1 min and start to rent your socks now</p>

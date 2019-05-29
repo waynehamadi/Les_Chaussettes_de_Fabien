@@ -53,9 +53,7 @@
   margin-top: 40px;
 }
 
-
-
-.card-product-infos img {
+.image-product-info img {
   margin: 20px;
   overflow: hidden;
     background: white;
@@ -85,6 +83,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 500px;
 }
 
 
@@ -169,6 +168,9 @@ right: 0;
   color: $red;
 }
 
+.card-product-container {
+  width: 100%;
+}
 
 .card-trip h1 {
   font-size: 16px;

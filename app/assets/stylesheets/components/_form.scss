@@ -1,3 +1,64 @@
+.form-sock {
+  background: white;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #666666;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+.dirtyness-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+.dirtyness-choice {
+  background:  #54BC83;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  color: white;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: #54BC83;
+  color: white;
+  opacity: 1;
+  }
+}
 .form h6 {
   color: #54BC83;
+}
+
+.form-check {
+  display: inline;
+  margin: 10px;
+}
+
+.form-flex {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.description-inputs {
+  height: 38px !important;
 }
