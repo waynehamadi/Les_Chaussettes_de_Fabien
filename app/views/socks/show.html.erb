@@ -16,12 +16,17 @@
       <p><%= @sock.description %></p>
       <h2>Reviews</h2>
       <ul class="reviews-list">
-      <% @sock.reviews.each do |review| %>
-        <li class="list-group-item list-reviews">
-          <% review.rating.times do %>
-            <i class="fas fa-socks" style="color:#54BC83"></i>
-            <% end %>: <%= review.content %></li>
-      <% end %>
+        <% @sock.reviews.each do |review| %>
+          <li class="list-group-item list-reviews">
+            <% review.rating.times do %>
+              <i class="fas fa-star" style="color:#54BC83"></i>
+              <% end %>
+        <% end %>
+        <% @sock.reviews.each do |review| %>
+            <% (5 - review.rating).times  do %>
+              <i class="far fa-star" style="color:#54BC83"></i>
+              <% end %></li>
+        <% end %>
       </ul>
     </div>
 
