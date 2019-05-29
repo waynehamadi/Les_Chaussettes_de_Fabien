@@ -98,6 +98,30 @@ sock7.user_id = users.sample.id
 sock7.save
 
 
+url8 = "https://res.cloudinary.com/dqwubjw5x/image/upload/v1559139461/UNCOMMON_SOLIDS_CREW_vakhip.jpg"
+sock8 = Sock.new(title:"UNCOMMON SOLIDS CREW",
+  description:"Hang ten with the Surfin' Guadalupe... because everyone loves a tasty wave. This is a fun one.",
+  category: "Kid",
+  price: 18,
+  size: "32-38",
+  color: "blue")
+sock8.remote_photo_url = url8
+sock8.user_id = users.sample.id
+sock8.save
+
+url9 = "https://res.cloudinary.com/dqwubjw5x/image/upload/v1559139461/SERVE_CREW_xsfhf0.jpg"
+sock9 = Sock.new(title:"SERVE CREW",
+  description:"Hang ten with the Surfin' Guadalupe... because everyone loves a tasty wave. This is a fun one.",
+  category: "Kid",
+  price: 13,
+  size: "32-38",
+  color: "brown")
+sock9.remote_photo_url = url9
+sock9.user_id = users.sample.id
+sock9.save
+
+
+
 ## BOOKINGS & REVIEWS
 
 booking1 = Booking.new()
