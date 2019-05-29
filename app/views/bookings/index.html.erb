@@ -45,11 +45,11 @@
           <% end  %>
         <% end  %>
           <% if policy(Review.new(booking_id: booking.id)).new? %>
-          <td class ="text-center align-middle">
-            <%= link_to "Add a review!", new_booking_review_path(booking) %>
+          <td class ="text-center align-middle bg-white">
+            <%= link_to "Add a review!", new_booking_review_path(booking), class:"btn btn-primary" %>
             </td>
             <% else %>
-            <td class ="text-center align-middle"><%= "Thanks! Your review has been added! 🎉"  %></td>
+            <td class ="text-center align-middle bg-white"><%= "Thanks! Your review has been added! 🎉"  %></td>
           <% end %>
       </tr>
     </tbody>
