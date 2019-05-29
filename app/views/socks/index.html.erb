@@ -1,5 +1,17 @@
 
 <div class="container">
+<div class="cards d-flex justify-content-center">
+
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dqwubjw5x/image/upload/v1559121332/the-creative-exchange-365158-unsplash_q2lmw3.jpg)">
+  <h1>Ready for summer ?</h1><%= link_to "", root_path, class: "card-link" %>
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dqwubjw5x/image/upload/v1559125501/700-shoes-odor-smell-smelly-boots_iwmcqg.jpg)">
+   </a><h1> Active worker smell</h1><%= link_to "", root_path, class: "card-link" %>
+  </div>
+
+</div>
+
 <div class="cards-grid">
   <% @socks.each do |sock| %>
   <div class="card-trip">
@@ -10,8 +22,13 @@
         <ul class="reviews-list">
         <% sock.reviews.each do |review| %>
           <li class="list-group-item list-reviews">
-            Rating<% review.rating.times do %>
-              <i class="fas fa-socks" style="color:#54BC83"></i>
+            <% review.rating.times do %>
+              <i class="fas fa-star" style="color:#54BC83"></i>
+              <% end %>
+        <% end %>
+        <% sock.reviews.each do |review| %>
+            <% (5 - review.rating).times  do %>
+              <i class="far fa-star" style="color:#54BC83"></i>
               <% end %></li>
         <% end %>
       </ul>
@@ -24,5 +41,5 @@
     <% end %>
 </div>
 </div>
-
+</div>
 
