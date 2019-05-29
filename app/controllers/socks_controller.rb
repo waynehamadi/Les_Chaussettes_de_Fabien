@@ -1,8 +1,12 @@
 class SocksController < ApplicationController
   def index
-    @socks = Sock.all
+   if params[:query].present?
+     @socks = Sock.search(params[:query])
+   else
+     @socks = Sock.all
+   end
     skip_policy_scope
-  end
+ end
 
   def show
     @sock = Sock.find(params[:id])
@@ -54,6 +58,6 @@ class SocksController < ApplicationController
   private
   def sock_params
     params.require(:sock).permit(:color, :title, :description, :category,
-    :price, :size, :photo)
+    :price, :size, :photo, :search)
   end
 end

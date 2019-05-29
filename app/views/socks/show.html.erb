@@ -21,15 +21,17 @@
         <h5 class="card-title">Book these Socks</h5>
         <h6 class="card-subtitle mb-2">Add your dates</h6>
         <%= simple_form_for([@sock, @booking]) do |f| %>
-          <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker"} %>
+          <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"} %>
           <%= f.button :submit, "I WANT THESE!", class:"btn btn-danger justify-content-center"%>
         <% end %>
       </div>
     </div>
   <div class="container d-flex justify-content-between mt-3 px-0">
     <% if policy(@sock).edit? %>
-  <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %></div>
+      <div><%= link_to "UPDATE", edit_sock_path(@sock), class: "btn" %>
+
+      </div>
     <% end %>
     <% if policy(@sock).destroy? %>
   <div><%= link_to "DESTROY", sock_path(@sock), method: :delete, class: "btn" %></div>

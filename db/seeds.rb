@@ -112,7 +112,7 @@ review1.save
 
 booking2 = Booking.new()
 booking2.sock_id = sock2.id
-booking2.user_id = 1
+booking2.user_id = users.sample.id
 booking2.start_at = "01/06/2019"
 booking2.end_at = "06/06/2019"
 booking2.save
@@ -122,7 +122,7 @@ review2.save
 
 booking3 = Booking.new()
 booking3.sock_id = sock3.id
-booking3.user_id = 1
+booking3.user_id = users.sample.id
 booking3.start_at = "01/06/2019"
 booking3.end_at = "06/06/2019"
 booking3.save
@@ -132,7 +132,7 @@ review3.save
 
 booking4 = Booking.new()
 booking4.sock_id = sock4.id
-booking4.user_id = 1
+booking4.user_id = users.sample.id
 booking4.start_at = "01/06/2019"
 booking4.end_at = "06/06/2019"
 booking4.save
@@ -142,7 +142,7 @@ review4.save
 
 booking5 = Booking.new()
 booking5.sock_id = sock5.id
-booking5.user_id = 1
+booking5.user_id = users.sample.id
 booking5.start_at = "01/06/2019"
 booking5.end_at = "06/06/2019"
 booking5.save
@@ -152,7 +152,7 @@ review5.save
 
 booking6 = Booking.new()
 booking6.sock_id = sock6.id
-booking6.user_id = 1
+booking6.user_id = users.sample.id
 booking6.start_at = "01/06/2019"
 booking6.end_at = "06/06/2019"
 booking6.save
@@ -162,7 +162,7 @@ review6.save
 
 booking7 = Booking.new()
 booking7.sock_id = sock7.id
-booking7.user_id = 1
+booking7.user_id = users.sample.id
 booking7.start_at = "01/06/2019"
 booking7.end_at = "06/06/2019"
 booking7.save

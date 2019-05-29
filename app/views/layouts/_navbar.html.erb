@@ -1,16 +1,26 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to socks_path, class: "navbar-brand" do %>
     <img src="https://res.cloudinary.com/dqwubjw5x/image/upload/v1558710620/logo_ids8ck.png" alt="">
+    LCDF
   <% end %>
+
+  <%= simple_form_for :search, url: socks_path, method: :get do  %>
+  <div class="search-form-control form-group">
+    <%= text_field_tag :query, params[:query], :placeholder => 'Find socks', :class => "form-control string required" %>
+    <% submit_tag "Search This Site", name: nil, :class => "btn btn-flat" %>
+  </div>
+<% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto">  <%= link_to new_sock_path do %>
+<button type="button" class="btn btn-outline-success m-3 align-top" ><i class="fas fa-plus-circle"></i> Add socks</button>  <% end %>
+
 
       <li class="nav-item dropdown">
         <%= image_tag "https://res.cloudinary.com/dqwubjw5x/image/upload/v1558703939/150302.jpg-r_1280_720-f_jpg-q_x-xxyxx_ltldfi.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

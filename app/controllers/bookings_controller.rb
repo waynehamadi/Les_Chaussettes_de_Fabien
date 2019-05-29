@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    if params["approved"] == "true"
+    if params["approved"] == "accepted"
       @booking.approved = "accepted"
     else
       @booking.approved = "rejected"
@@ -26,20 +26,26 @@ class BookingsController < ApplicationController
     @sock = Sock.find(params[:sock_id])
     @booking.sock = @sock
     @booking.user = current_user
-    @booking.save
-    redirect_to bookings_path(@booking)
+    if @booking.save
+      redirect_to bookings_path(@booking)
+    else
+      render 'socks/show'
+    end
   end
 
   def myrents
     @bookings = []
-    @socks = Sock.where(user: current_user)
-    @socks == [] ? booking = Booking.new : booking = Booking.where(sock_id: @socks.first.id).first
-    @bookings << booking
+    socks = Sock.select(:id).where(user: current_user)
+    unless socks == []
+      @bookings = Booking.where('sock_id IN (?)', socks)
+    else
+      booking = Booking.new
+      @bookings << booking
+    end
     authorize @bookings
   end
 
   def accept
-
   end
 
   private

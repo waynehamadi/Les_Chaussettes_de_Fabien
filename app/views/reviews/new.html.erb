@@ -1,0 +1,16 @@
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit %>
+<% end %>
+<!--
+create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
+simple_form_for(@user, as: :user, method: :post, url: users_path) -->
