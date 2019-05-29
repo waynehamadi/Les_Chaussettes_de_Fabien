@@ -46,7 +46,6 @@
 
 .card-product {
   overflow: hidden;
-  height: 500px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -89,6 +88,11 @@
 
 
 // --- wagon ui kit ---
+.bck-img {
+  background-image: url("https://static3.bigstockphoto.com/8/2/2/large1500/228847342.jpg");
+
+}
+
 .card {
   height: 150px;
   border-radius: 1px;
@@ -110,12 +114,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  height: 240px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: 400;
   color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+
 }
  .card-trip {
   overflow: hidden;
@@ -142,7 +155,7 @@ right: 0;
 
 
 .card-trip > img {
-  height: 220px;
+  height: 200px;
   object-fit: cover;
   padding-left: 30px;
 
@@ -189,6 +202,22 @@ right: 0;
   width: 40px;
 }
 
+.card-season {
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    position: relative;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -218,6 +247,9 @@ right: 0;
   left: 0;
   right: 0;
 }
+
+
+
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
