@@ -18,6 +18,7 @@
         <th class ="text-center" scope="col">Booking length</th>
         <th class ="text-center" scope="col">Price paid</th>
         <th class ="text-center" scope="col">Status</th>
+        <th class ="text-center" scope="col">Add a review</th>
       </tr>
     </thead>
     <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
@@ -43,6 +44,13 @@
             <td class ="text-center align-middle bg-white"><%= "In progress...! 🎉"  %></td>
           <% end  %>
         <% end  %>
+          <% if policy(Review.new(booking_id: booking.id)).new? %>
+          <td class ="text-center align-middle">
+            <%= link_to "Add a review!", new_booking_review_path(booking) %>
+            </td>
+            <% else %>
+            <td class ="text-center align-middle"><%= "Thanks! Your review has been added! 🎉"  %></td>
+          <% end %>
       </tr>
     </tbody>
     <% end %>
