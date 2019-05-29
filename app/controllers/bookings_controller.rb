@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    if params["approved"] == "true"
+    if params["approved"] == "accepted"
       @booking.approved = "accepted"
     else
       @booking.approved = "rejected"
