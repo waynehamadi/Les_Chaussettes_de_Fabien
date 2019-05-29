@@ -12,7 +12,7 @@
   <table class="table table-striped bg-white">
     <thead>
       <tr>
-        <th class ="text-center" scope="col">My pair of socks</th>
+        <th class ="text-center px-10" scope="col">My pair of socks</th>
         <th class ="text-center" scope="col">Booking start</th>
         <th class ="text-center" scope="col">Booking end</th>
         <th class ="text-center" scope="col">Booking length</th>
@@ -23,24 +23,24 @@
     <% @bookings.sort_by{|booking| booking.start_at}.reverse.each do |booking|%>
     <tbody>
       <tr>
-        <td class ="text-center align-middle">
+        <td class ="text-center align-middle bg-white">
           <%= cl_image_tag booking.sock.photo, height: 80, width: 80, crop: :fill %><br>
-          <%= link_to "#{booking.sock.title}", sock_path(booking.sock) %></td>
-        <td class ="text-center align-middle"><%= booking.start_at %></td>
-        <td class ="text-center align-middle "><%= booking.end_at %></td>
-        <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
-        <td class ="text-center align-middle"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price.to_i %>€</td>
+          <%= link_to "#{booking.sock.title.capitalize}", sock_path(booking.sock) %></td>
+        <td class ="text-center align-middle bg-white"><%= booking.start_at %></td>
+        <td class ="text-center align-middle bg-white"><%= booking.end_at %></td>
+        <td class ="text-center align-middle bg-white"><%= ((booking.end_at - booking.start_at).to_i + 1) %> day(s)</td>
+        <td class ="text-center align-middle bg-white"><%= ((booking.end_at - booking.start_at).to_i + 1) * booking.sock.price.to_i %>€</td>
         <% if booking.approved.nil?%>
-          <td class ="text-center align-middle"><%= "Request pending approval..."  %></td>
+          <td class ="text-center align-middle bg-white"><%= "Request pending approval..."  %></td>
         <% elsif booking.approved == "rejected" %>
-          <td class ="text-center align-middle"><%= "Rejected 🚫"  %></td>
+          <td class ="text-center align-middle bg-white"><%= "Rejected 🚫"  %></td>
         <% elsif booking.approved == "accepted" %>
           <% if (booking.start_at > Date.today && booking.end_at > Date.today) %>
-            <td class ="text-center align-middle"><%= "Coming soon! 👍"  %></td>
+            <td class ="text-center align-middle bg-white"><%= "Approved! ✅"  %></td>
           <% elsif (booking.end_at < Date.today && booking.start_at < Date.today)%>
-            <td class ="text-center align-middle"><%= "Add a review 📝"  %></td>
+            <td class ="text-center align-middle bg-white"><%= "Add a review 📝"  %></td>
           <% elsif (booking.end_at >= Date.today && booking.start_at >= Date.today)%>
-            <td class ="text-center align-middle"><%= "In progress...! 🎉"  %></td>
+            <td class ="text-center align-middle bg-white"><%= "In progress...! 🎉"  %></td>
           <% end  %>
         <% end  %>
       </tr>
